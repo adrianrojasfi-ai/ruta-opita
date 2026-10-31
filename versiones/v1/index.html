@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruta Opita | Turismo en el Huila</title>
+  <meta name="description" content="Ruta Opita: planes guiados al Desierto de la Tatacoa, San Agustín, el Estrecho del Magdalena y el Salto de Bordones desde Neiva, Huila.">
+
+  <!-- Fuentes de Google: Fraunces (títulos) y Nunito Sans (textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS 4 (Play CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Tema propio: regla 60-30-10 + colores semánticos + modo oscuro -->
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      /* 60 % dominante, 30 % secundario, 10 % acento */
+      --color-arena: #FBF6EE;
+      --color-andino: #1F3B36;
+      --color-terracota: #B23A16;
+
+      /* Semánticos */
+      --color-exito: #15803D;
+      --color-error: #B91C1C;
+      --color-advertencia: #A34A04;
+
+      /* Modo oscuro */
+      --color-noche: #13201D;
+      --color-noche-tarjeta: #1C2E2A;
+      --color-luna: #F2EADF;
+      --color-terracota-claro: #F0936D;
+
+      /* Fuentes */
+      --font-titulos: "Fraunces", serif;
+      --font-texto: "Nunito Sans", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-arena text-andino font-texto dark:bg-noche dark:text-luna">
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-andino text-arena shadow-md">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#inicio" class="font-titulos text-2xl font-bold">Ruta Opita</a>
+
+      <ul id="menu" class="hidden md:flex md:items-center md:gap-6">
+        <li><a href="#destinos" class="hover:text-terracota-claro">Destinos</a></li>
+        <li><a href="#planes" class="hover:text-terracota-claro">Planes</a></li>
+        <li><a href="#nosotros" class="hover:text-terracota-claro">Nosotros</a></li>
+        <li><a href="#galeria" class="hover:text-terracota-claro">Galería</a></li>
+        <li><a href="#preguntas" class="hover:text-terracota-claro">Preguntas</a></li>
+        <li><a href="#contacto" class="bg-terracota px-4 py-2 rounded-lg font-semibold hover:bg-terracota/90">Reservar</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button id="btnTema" class="p-2 rounded-lg hover:bg-white/10" aria-label="Cambiar entre modo claro y oscuro">
+          <span id="iconoTema">🌙</span>
+        </button>
+        <button id="btnMenu" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+          <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section id="inicio" class="relative min-h-screen flex items-center bg-[url('../../img/hero-tatacoa.svg')] bg-cover bg-center">
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative max-w-6xl mx-auto px-4 pt-24 text-white">
+        <p class="uppercase tracking-widest text-sm font-semibold">Neiva · Huila · Colombia</p>
+        <h1 class="font-titulos text-4xl md:text-5xl lg:text-6xl font-bold mt-3 max-w-3xl">Descubre el Huila entre desiertos, estrellas y piedras milenarias</h1>
+        <p class="mt-5 text-lg md:text-xl max-w-2xl">Planes guiados a la Tatacoa, San Agustín, el Estrecho del Magdalena y el Salto de Bordones, con guías locales y grupos pequeños.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#destinos" class="bg-terracota text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-terracota/90">Ver destinos</a>
+          <a href="#contacto" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white hover:text-andino">Reservar mi viaje</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DESTINOS ===================== -->
+    <section id="destinos" class="max-w-6xl mx-auto px-4 py-20">
+      <h2 class="font-titulos text-3xl md:text-4xl font-bold">Destinos</h2>
+      <p class="mt-2 text-andino/80 dark:text-luna/80">Cuatro lugares que no te puedes perder en el Huila.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+        <article class="bg-white dark:bg-noche-tarjeta rounded-2xl shadow overflow-hidden transition hover:-translate-y-1 hover:shadow-xl">
+          <img src="../../img/tatacoa-cusco.svg" alt="Formaciones de tierra roja en el sector El Cusco del Desierto de la Tatacoa" class="w-full h-44 object-cover">
+          <div class="p-5">
+            <h3 class="font-titulos text-xl font-bold">Desierto de la Tatacoa</h3>
+            <p class="text-sm text-terracota dark:text-terracota-claro font-semibold">Villavieja</p>
+            <p class="mt-2 text-sm">Bosque seco de unos 330 km² con tierras rojas en El Cusco, tierras grises en Los Hoyos y uno de los mejores cielos del país.</p>
+          </div>
+        </article>
+
+        <article class="bg-white dark:bg-noche-tarjeta rounded-2xl shadow overflow-hidden transition hover:-translate-y-1 hover:shadow-xl">
+          <img src="../../img/san-agustin.svg" alt="Escultura de piedra rodeada de colinas verdes en San Agustín" class="w-full h-44 object-cover">
+          <div class="p-5">
+            <h3 class="font-titulos text-xl font-bold">Parque Arqueológico de San Agustín</h3>
+            <p class="text-sm text-terracota dark:text-terracota-claro font-semibold">San Agustín e Isnos</p>
+            <p class="mt-2 text-sm">Patrimonio de la Humanidad desde 1995, con esculturas en piedra talladas entre los siglos I y VIII.</p>
+          </div>
+        </article>
+
+        <article class="bg-white dark:bg-noche-tarjeta rounded-2xl shadow overflow-hidden transition hover:-translate-y-1 hover:shadow-xl">
+          <img src="../../img/estrecho-magdalena.svg" alt="El río Magdalena pasando por un canal angosto de roca" class="w-full h-44 object-cover">
+          <div class="p-5">
+            <h3 class="font-titulos text-xl font-bold">Estrecho del Magdalena</h3>
+            <p class="text-sm text-terracota dark:text-terracota-claro font-semibold">San Agustín</p>
+            <p class="mt-2 text-sm">El río más importante de Colombia se encoge hasta pasar por un canal de roca de unos 2,20 metros de ancho.</p>
+          </div>
+        </article>
+
+        <article class="bg-white dark:bg-noche-tarjeta rounded-2xl shadow overflow-hidden transition hover:-translate-y-1 hover:shadow-xl">
+          <img src="../../img/salto-bordones.svg" alt="Cascada alta del Salto de Bordones entre montañas verdes" class="w-full h-44 object-cover">
+          <div class="p-5">
+            <h3 class="font-titulos text-xl font-bold">Salto de Bordones</h3>
+            <p class="text-sm text-terracota dark:text-terracota-claro font-semibold">Isnos</p>
+            <p class="mt-2 text-sm">Una cascada de cerca de 400 metros de altura, a la que se llega con una caminata entre montañas.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== PLANES ===================== -->
+    <section id="planes" class="bg-andino/5 dark:bg-white/5 py-20">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-titulos text-3xl md:text-4xl font-bold">Planes</h2>
+        <p class="mt-2 text-andino/80 dark:text-luna/80">Precios de referencia por persona. Salidas desde Neiva.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+          <article class="bg-white dark:bg-noche-tarjeta rounded-2xl shadow p-6 flex flex-col">
+            <h3 class="font-titulos text-2xl font-bold">Noche en la Tatacoa</h3>
+            <p class="text-sm mt-1">2 días · 1 noche</p>
+            <p class="text-3xl font-bold text-terracota dark:text-terracota-claro mt-4">$ 380.000</p>
+            <ul class="mt-4 space-y-2 text-sm flex-1">
+              <li>✔ Transporte ida y regreso desde Neiva</li>
+              <li>✔ Recorrido por El Cusco y Los Hoyos</li>
+              <li>✔ Sesión en el observatorio astronómico</li>
+            </ul>
+            <button class="btn-detalles mt-6 bg-terracota text-white px-5 py-2 rounded-lg font-semibold hover:bg-terracota/90" data-plan="tatacoa">Ver detalles</button>
+          </article>
+
+          <article class="bg-white dark:bg-noche-tarjeta rounded-2xl shadow p-6 flex flex-col">
+            <h3 class="font-titulos text-2xl font-bold">Ruta Agustiniana</h3>
+            <p class="text-sm mt-1">3 días · 2 noches</p>
+            <p class="text-3xl font-bold text-terracota dark:text-terracota-claro mt-4">$ 890.000</p>
+            <ul class="mt-4 space-y-2 text-sm flex-1">
+              <li>✔ Entradas al parque arqueológico</li>
+              <li>✔ Alto de los Ídolos y Estrecho del Magdalena</li>
+              <li>✔ Alojamiento con desayuno</li>
+            </ul>
+            <button class="btn-detalles mt-6 bg-terracota text-white px-5 py-2 rounded-lg font-semibold hover:bg-terracota/90" data-plan="agustiniana">Ver detalles</button>
+          </article>
+
+          <article class="bg-white dark:bg-noche-tarjeta rounded-2xl shadow p-6 flex flex-col">
+            <h3 class="font-titulos text-2xl font-bold">Huila Completo</h3>
+            <p class="text-sm mt-1">5 días · 4 noches</p>
+            <p class="text-3xl font-bold text-terracota dark:text-terracota-claro mt-4">$ 1.650.000</p>
+            <ul class="mt-4 space-y-2 text-sm flex-1">
+              <li>✔ Tatacoa, San Agustín y Salto de Bordones</li>
+              <li>✔ Guía local durante todo el viaje</li>
+              <li>✔ Seguro de viaje incluido</li>
+            </ul>
+            <button class="btn-detalles mt-6 bg-terracota text-white px-5 py-2 rounded-lg font-semibold hover:bg-terracota/90" data-plan="completo">Ver detalles</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MODAL ===================== -->
+    <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4">
+      <div class="bg-white dark:bg-noche-tarjeta rounded-2xl max-w-lg w-full p-6 relative">
+        <button id="cerrarModal" class="absolute top-3 right-3 text-2xl" aria-label="Cerrar">&times;</button>
+        <h3 id="modalTitulo" class="font-titulos text-2xl font-bold"></h3>
+        <ol id="modalItinerario" class="mt-4 space-y-2 list-decimal list-inside"></ol>
+        <a href="#contacto" id="modalReservar" class="inline-block mt-6 bg-terracota text-white px-5 py-2 rounded-lg font-semibold">Quiero este plan</a>
+      </div>
+    </div>
+
+    <!-- ===================== NOSOTROS ===================== -->
+    <section id="nosotros" class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="font-titulos text-3xl md:text-4xl font-bold">Nosotros</h2>
+        <p class="mt-4 leading-relaxed">Somos un equipo de guías nacidos en el Huila. Creemos que la mejor forma de conocer una región es con alguien que la ha caminado toda su vida: por eso viajamos en grupos pequeños, contratamos transporte y hospedaje local y cuidamos los lugares que visitamos.</p>
+        <p class="mt-4 leading-relaxed">Cada plan incluye guía, transporte y asistencia durante el viaje, para que tú solo te preocupes por disfrutar.</p>
+        <div class="grid grid-cols-3 gap-4 mt-8 text-center">
+          <div><p class="font-titulos text-3xl font-bold text-terracota dark:text-terracota-claro">4</p><p class="text-sm">destinos</p></div>
+          <div><p class="font-titulos text-3xl font-bold text-terracota dark:text-terracota-claro">12</p><p class="text-sm">viajeros máx. por grupo</p></div>
+          <div><p class="font-titulos text-3xl font-bold text-terracota dark:text-terracota-claro">100 %</p><p class="text-sm">guías huilenses</p></div>
+        </div>
+      </div>
+      <img src="../../img/nosotros.svg" alt="Dos viajeros caminando por un sendero del desierto al atardecer" class="w-full rounded-2xl shadow-lg">
+    </section>
+
+    <!-- ===================== GALERÍA ===================== -->
+    <section id="galeria" class="bg-andino/5 dark:bg-white/5 py-20">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-titulos text-3xl md:text-4xl font-bold">Galería</h2>
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+          <img src="../../img/tatacoa-cusco.svg" alt="Tierras rojas del sector El Cusco" class="w-full h-40 md:h-56 object-cover rounded-xl">
+          <img src="../../img/tatacoa-hoyos.svg" alt="Piscina natural entre tierras grises en Los Hoyos" class="w-full h-40 md:h-56 object-cover rounded-xl">
+          <img src="../../img/tatacoa-noche.svg" alt="Cielo estrellado sobre el observatorio de la Tatacoa" class="w-full h-40 md:h-56 object-cover rounded-xl">
+          <img src="../../img/san-agustin.svg" alt="Escultura de piedra en el Parque Arqueológico de San Agustín" class="w-full h-40 md:h-56 object-cover rounded-xl">
+          <img src="../../img/estrecho-magdalena.svg" alt="Cañón de roca del Estrecho del Magdalena" class="w-full h-40 md:h-56 object-cover rounded-xl">
+          <img src="../../img/salto-bordones.svg" alt="Caída de agua del Salto de Bordones" class="w-full h-40 md:h-56 object-cover rounded-xl">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PREGUNTAS FRECUENTES ===================== -->
+    <section id="preguntas" class="max-w-3xl mx-auto px-4 py-20">
+      <h2 class="font-titulos text-3xl md:text-4xl font-bold">Preguntas frecuentes</h2>
+      <div class="mt-8 divide-y divide-andino/20 dark:divide-luna/20">
+        <div class="py-4">
+          <button class="acordeon w-full flex justify-between items-center text-left font-semibold text-lg" aria-expanded="false">
+            ¿Cuál es la mejor época para visitar la Tatacoa?
+            <span class="text-2xl">+</span>
+          </button>
+          <div class="respuesta hidden mt-3">La temporada seca, especialmente entre junio y septiembre y en diciembre y enero, ofrece cielos más despejados para la observación de estrellas. Lleva gorra, bloqueador y mucha agua: las temperaturas pueden pasar de 35 °C.</div>
+        </div>
+        <div class="py-4">
+          <button class="acordeon w-full flex justify-between items-center text-left font-semibold text-lg" aria-expanded="false">
+            ¿Qué incluye el precio de los planes?
+            <span class="text-2xl">+</span>
+          </button>
+          <div class="respuesta hidden mt-3">Transporte desde Neiva, guía local, entradas a los sitios del itinerario y alojamiento cuando el plan dura más de un día. La alimentación depende de cada plan; los detalles están en "Ver detalles".</div>
+        </div>
+        <div class="py-4">
+          <button class="acordeon w-full flex justify-between items-center text-left font-semibold text-lg" aria-expanded="false">
+            ¿Puedo viajar con niños?
+            <span class="text-2xl">+</span>
+          </button>
+          <div class="respuesta hidden mt-3">Sí. Los planes de la Tatacoa y San Agustín son aptos para niños desde los 6 años. La caminata al Salto de Bordones exige buena condición física.</div>
+        </div>
+        <div class="py-4">
+          <button class="acordeon w-full flex justify-between items-center text-left font-semibold text-lg" aria-expanded="false">
+            ¿Cómo confirmo mi reserva?
+            <span class="text-2xl">+</span>
+          </button>
+          <div class="respuesta hidden mt-3">Envía el formulario de contacto. Te escribimos en menos de 24 horas para confirmar fechas, cupos y forma de pago.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTO ===================== -->
+    <section id="contacto" class="bg-andino text-arena py-20">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="font-titulos text-3xl md:text-4xl font-bold">Reserva tu viaje</h2>
+        <p class="mt-2">Cuéntanos qué plan te interesa y te contactamos.</p>
+
+        <form id="formulario" class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5" novalidate>
+          <div>
+            <label for="nombre" class="block font-semibold">Nombre completo *</label>
+            <input id="nombre" name="nombre" type="text" class="mt-1 w-full rounded-lg px-3 py-2 text-andino">
+            <p class="error text-error text-sm mt-1 hidden">Escribe tu nombre.</p>
+          </div>
+          <div>
+            <label for="correo" class="block font-semibold">Correo electrónico *</label>
+            <input id="correo" name="correo" type="email" class="mt-1 w-full rounded-lg px-3 py-2 text-andino">
+            <p class="error text-error text-sm mt-1 hidden">Escribe un correo válido.</p>
+          </div>
+          <div>
+            <label for="plan" class="block font-semibold">Plan de interés *</label>
+            <select id="plan" name="plan" class="mt-1 w-full rounded-lg px-3 py-2 text-andino">
+              <option value="">Selecciona un plan</option>
+              <option value="tatacoa">Noche en la Tatacoa</option>
+              <option value="agustiniana">Ruta Agustiniana</option>
+              <option value="completo">Huila Completo</option>
+            </select>
+            <p class="error text-error text-sm mt-1 hidden">Selecciona un plan.</p>
+          </div>
+          <div>
+            <label for="fecha" class="block font-semibold">Fecha tentativa *</label>
+            <input id="fecha" name="fecha" type="date" class="mt-1 w-full rounded-lg px-3 py-2 text-andino">
+            <p class="error text-error text-sm mt-1 hidden">Elige una fecha.</p>
+          </div>
+          <div>
+            <label for="personas" class="block font-semibold">Número de personas *</label>
+            <input id="personas" name="personas" type="number" min="1" max="10" class="mt-1 w-full rounded-lg px-3 py-2 text-andino">
+            <p class="error text-error text-sm mt-1 hidden">Debe ser entre 1 y 10.</p>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="mensaje" class="block font-semibold">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" class="mt-1 w-full rounded-lg px-3 py-2 text-andino"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="w-full sm:w-auto bg-terracota text-white px-8 py-3 rounded-lg font-semibold hover:bg-terracota/90">Enviar solicitud</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-noche text-luna py-10">
+    <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-3 gap-8 text-sm">
+      <div>
+        <p class="font-titulos text-xl font-bold">Ruta Opita</p>
+        <p class="mt-2">Carrera 5 # 10-20, Neiva, Huila</p>
+      </div>
+      <div>
+        <p class="font-semibold">Horario de atención</p>
+        <p class="mt-2">Lunes a sábado, 8:00 a. m. – 6:00 p. m.</p>
+      </div>
+      <div>
+        <p class="font-semibold">Síguenos</p>
+        <div class="flex gap-4 mt-2">
+          <a href="#" class="hover:text-terracota-claro">Instagram</a>
+          <a href="#" class="hover:text-terracota-claro">Facebook</a>
+          <a href="#" class="hover:text-terracota-claro">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-xs mt-8">© 2026 Ruta Opita. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast" class="fixed bottom-5 right-5 bg-exito text-white px-5 py-3 rounded-lg shadow-lg hidden">
+    ¡Solicitud enviada! Te contactaremos pronto.
+  </div>
+
+  <!-- ===================== JAVASCRIPT ===================== -->
+  <script>
+    // ---------- Modo oscuro ----------
+    const html = document.documentElement;
+    const btnTema = document.getElementById("btnTema");
+    const iconoTema = document.getElementById("iconoTema");
+
+    if (localStorage.getItem("tema") === "oscuro") {
+      html.classList.add("dark");
+      iconoTema.textContent = "☀️";
+    }
+
+    btnTema.addEventListener("click", () => {
+      html.classList.toggle("dark");
+      const oscuro = html.classList.contains("dark");
+      localStorage.setItem("tema", oscuro ? "oscuro" : "claro");
+      iconoTema.textContent = oscuro ? "☀️" : "🌙";
+    });
+
+    // ---------- Menú hamburguesa ----------
+    const btnMenu = document.getElementById("btnMenu");
+    const menu = document.getElementById("menu");
+
+    btnMenu.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      const abierto = !menu.classList.contains("hidden");
+      btnMenu.setAttribute("aria-expanded", abierto);
+    });
+
+    // ---------- Modal de planes ----------
+    const planes = {
+      tatacoa: {
+        titulo: "Noche en la Tatacoa",
+        dias: [
+          "Día 1: salida desde Neiva, Museo Paleontológico de Villavieja, recorrido por El Cusco y noche de observación astronómica.",
+          "Día 2: caminata por Los Hoyos, baño en la piscina natural y regreso a Neiva."
+        ]
+      },
+      agustiniana: {
+        titulo: "Ruta Agustiniana",
+        dias: [
+          "Día 1: viaje Neiva – San Agustín y caminata de bienvenida por el pueblo.",
+          "Día 2: Parque Arqueológico (Mesitas y Bosque de las Estatuas) y Estrecho del Magdalena.",
+          "Día 3: Alto de los Ídolos en Isnos y regreso a Neiva."
+        ]
+      },
+      completo: {
+        titulo: "Huila Completo",
+        dias: [
+          "Día 1: Desierto de la Tatacoa y observatorio.",
+          "Día 2: Los Hoyos y traslado hacia el sur del Huila.",
+          "Día 3: Parque Arqueológico de San Agustín.",
+          "Día 4: Estrecho del Magdalena y caminata al Salto de Bordones.",
+          "Día 5: Alto de los Ídolos y regreso a Neiva."
+        ]
+      }
+    };
+
+    const modal = document.getElementById("modal");
+    const modalTitulo = document.getElementById("modalTitulo");
+    const modalItinerario = document.getElementById("modalItinerario");
+
+    function abrirModal(clave) {
+      const plan = planes[clave];
+      modalTitulo.textContent = plan.titulo;
+      modalItinerario.innerHTML = plan.dias.map(d => `<li>${d}</li>`).join("");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function cerrarModal() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    document.querySelectorAll(".btn-detalles").forEach(btn => {
+      btn.addEventListener("click", () => abrirModal(btn.dataset.plan));
+    });
+    document.getElementById("cerrarModal").addEventListener("click", cerrarModal);
+    document.getElementById("modalReservar").addEventListener("click", cerrarModal);
+    modal.addEventListener("click", e => { if (e.target === modal) cerrarModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarModal(); });
+
+    // ---------- Acordeón de preguntas ----------
+    document.querySelectorAll(".acordeon").forEach(boton => {
+      boton.addEventListener("click", () => {
+        const respuesta = boton.nextElementSibling;
+        respuesta.classList.toggle("hidden");
+        const abierto = !respuesta.classList.contains("hidden");
+        boton.setAttribute("aria-expanded", abierto);
+        boton.querySelector("span").textContent = abierto ? "−" : "+";
+      });
+    });
+
+    // ---------- Validación del formulario ----------
+    const formulario = document.getElementById("formulario");
+    const toast = document.getElementById("toast");
+
+    function mostrarError(campo, hayError) {
+      const error = campo.parentElement.querySelector(".error");
+      error.classList.toggle("hidden", !hayError);
+      campo.classList.toggle("ring-2", hayError);
+      campo.classList.toggle("ring-error", hayError);
+    }
+
+    formulario.addEventListener("submit", e => {
+      e.preventDefault();
+      let valido = true;
+
+      const nombre = document.getElementById("nombre");
+      const correo = document.getElementById("correo");
+      const plan = document.getElementById("plan");
+      const fecha = document.getElementById("fecha");
+      const personas = document.getElementById("personas");
+
+      const errNombre = nombre.value.trim() === "";
+      const errCorreo = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim());
+      const errPlan = plan.value === "";
+      const errFecha = fecha.value === "";
+      const n = Number(personas.value);
+      const errPersonas = !(n >= 1 && n <= 10);
+
+      mostrarError(nombre, errNombre);
+      mostrarError(correo, errCorreo);
+      mostrarError(plan, errPlan);
+      mostrarError(fecha, errFecha);
+      mostrarError(personas, errPersonas);
+
+      valido = !(errNombre || errCorreo || errPlan || errFecha || errPersonas);
+
+      if (valido) {
+        formulario.reset();
+        toast.classList.remove("hidden");
+        setTimeout(() => toast.classList.add("hidden"), 4000);
+      }
+    });
+  </script>
+</body>
+</html>
