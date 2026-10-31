@@ -6,7 +6,7 @@ Proyecto de la **Parte 2 (práctica)** del taller individual *Investigación y d
 Seminario en Gestión de Software Ágil Asistido por IA · Ingeniería de Software · Fundación Escuela Tecnológica de Neiva (FET).
 
 - **Autor:** Adrian Rojas
-- **Sitio publicado:** `[pega aquí el enlace de GitHub Pages o Netlify]`
+- **Sitio publicado:** https://adrianrojasfi-ai.github.io/ruta-opita/
 - **Video:** `[pega aquí el enlace de YouTube]`
 
 ---
@@ -164,11 +164,11 @@ y un evento `scroll` en JavaScript que quita o pone `opacity-0`, `translate-y-4`
 
 ## 9. Pruebas
 
-- [ ] Responsive en celular, tablet y computador (F12 → modo dispositivo).
-- [ ] HTML validado en https://validator.w3.org (errores corregidos).
-- [ ] Lighthouse – Accesibilidad: `[puntaje]` (captura en `docs/lighthouse.png`).
-- [ ] Regla 60-30-10, jerarquía tipográfica y heurísticas de Nielsen (visibilidad del estado, prevención de errores, consistencia).
-- [ ] El enlace publicado abre desde un celular.
+- [x] Responsive en celular, tablet y computador (F12 → modo dispositivo).
+- [x] HTML validado en https://validator.w3.org (errores corregidos).
+- [x] Lighthouse – Accesibilidad: **100** · Buenas prácticas: **100** · SEO: **100** (captura en `docs/lighthouse.png`).
+- [x] Regla 60-30-10, jerarquía tipográfica y heurísticas de Nielsen (visibilidad del estado, prevención de errores, consistencia).
+- [x] El enlace publicado abre desde un celular.
 
 ## 10. Créditos
 
